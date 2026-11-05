@@ -33,6 +33,7 @@ jobs:
             **/node_modules/**
             **/.DS_Store
             .vscode/**
+            backups/**
             tests/**
             wordpress-plugin/**
             harinam-store-api/**
