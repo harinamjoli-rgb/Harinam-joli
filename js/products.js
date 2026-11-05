@@ -49,9 +49,8 @@ const formatPrice = (amount) =>
   }).format(Number(amount) || 0);
 
 const replaceFilterOptions = (name, values) => {
-  const first = document.querySelector(`input[name="${name}"]`);
-  if (!first) return;
-  const details = first.closest("details");
+  const details = document.querySelector(`[data-filter-group="${name}"]`);
+  if (!details) return;
   details.hidden = values.length === 0;
   details.querySelectorAll("label").forEach((label) => label.remove());
   values.forEach((value) => {
@@ -383,19 +382,16 @@ document.querySelectorAll("dialog").forEach((dialog) =>
   }),
 );
 
-document.querySelectorAll(".featured-card").forEach((button, index) => {
-  const product = products[index];
-  if (!product) {
-    button.hidden = true;
-    return;
-  }
-  button.dataset.productId = product.id;
-  button.querySelector("img").src = product.image;
-  button.querySelector("img").alt = product.name;
-  button.querySelector("b").textContent = product.name;
-  button.querySelector("small").textContent = formatPrice(product.price);
-  button.addEventListener("click", () => openProduct(product.id));
-});
+const featuredProducts = document.querySelector(".featured-products");
+featuredProducts.hidden = products.length === 0;
+featuredProducts.insertAdjacentHTML("beforeend", products.slice(0, 3).map((product) => `
+  <button class="featured-card" type="button" data-product-id="${escapeHTML(product.id)}">
+    <img loading="lazy" decoding="async" src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" />
+    <span><b>${escapeHTML(product.name)}</b><em>${escapeHTML(product.rating)} / 5</em><small>${formatPrice(product.price)}</small></span>
+  </button>`).join(""));
+featuredProducts.querySelectorAll(".featured-card").forEach((button, index) =>
+  button.addEventListener("click", () => openProduct(products[index].id)),
+);
 
 
 const syncCatalogRoute = (params, push = false) => {
@@ -440,9 +436,12 @@ syncCatalogRoute(new URLSearchParams(location.search));
 renderWishlist();
 syncFilterToggle();
 if (location.hash === "#wishlist") wishlistDialog.showModal();
+document.querySelector("#filters-status").hidden = true;
+document.querySelector("#filter-controls").hidden = false;
   })
   .catch((error) => {
     document.querySelector("#result-count").textContent = "Catalog unavailable";
+    document.querySelector("#filters-status").textContent = "Filters unavailable. Please refresh to try again.";
     document
       .querySelectorAll(".featured-card")
       .forEach((button) => (button.hidden = true));

@@ -3,7 +3,7 @@ Contributors: harinamjoli
 Tags: woocommerce, rest-api, headless, paytm, paypal
 Requires at least: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 
 Secure WooCommerce API for the static storefront at https://harinamjoli.in.
@@ -34,6 +34,8 @@ No products, customers, orders or settings are created, changed, or deleted on p
 * COD, cheque, BACS and every gateway outside the country rule are removed from checkout availability.
 * Paytm provides its own supported UPI options, including available UPI apps. No PhonePe or BHIM gateway is duplicated here.
 * The API creates a pending-payment WooCommerce order and returns its WooCommerce order-pay URL. Official gateway pages and callbacks own payment authorization and status changes.
+* Orders created by this storefront use the Harinam Joli payment-page design at the same order-pay URL. WooCommerce still renders and validates the official gateway form, nonces and callbacks. Other orders and WordPress pages keep their existing template.
+* The Paytm receipt renders the installed gateway's CheckoutJS with that order's transaction token, amount and merchant configuration. The gateway supplies its QR and enabled payment options. No static QR, preview timer, sample card fields or merchant keys are included in this plugin's payment UI.
 * The storefront treats an order as paid only when WooCommerce reports is_paid() after the official callback/webhook.
 
 == Public endpoints ==
@@ -100,6 +102,9 @@ Never enter gateway credentials in this plugin, the static frontend, test script
 Deactivate Harinam Store API, restore the previous static frontend JavaScript/HTML files, and purge caches. Deactivation does not delete WooCommerce data. Pending/paid orders already created remain in WooCommerce.
 
 == Changelog ==
+
+= 1.0.3 =
+* Branded, responsive payment page for storefront orders, retaining official gateway forms and callbacks.
 
 = 1.0.0 =
 * Initial production integration.

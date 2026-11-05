@@ -193,7 +193,8 @@
   let authRootPromise;
   let returnMarker;
   let returnHidden;
-  let openedThisPage = false;
+  let promptShown = true;
+  try { promptShown = sessionStorage.getItem("harinam-login-popup-shown") === "1"; } catch {}
   let promptDue = false;
   const getAuthRoot = () => {
     const existing = document.querySelector("#auth-guest");
@@ -242,7 +243,8 @@
     init(root);
     show(root, "login");
     authDialog.showModal();
-    openedThisPage = true;
+    promptShown = true;
+    try { sessionStorage.setItem("harinam-login-popup-shown", "1"); } catch {}
     requestAnimationFrame(() => {
       if (authDialog.open) root.querySelector("#login-form").elements.email.focus();
     });
@@ -259,7 +261,7 @@
     if (HarinamShop.currentUser() && authDialog?.open) authDialog.close();
   });
   const autoOpen = () => {
-    if (!promptDue || HarinamShop.currentUser() || openedThisPage || document.hidden || document.querySelector("dialog[open]")) return;
+    if (!promptDue || HarinamShop.currentUser() || promptShown || document.hidden || document.querySelector("dialog[open]")) return;
     return open().catch(() => {});
   };
   setTimeout(() => {

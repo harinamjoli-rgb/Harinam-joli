@@ -72,3 +72,5 @@ git push
 
 ## Store API plugin
 `harinam-store-api` plugin abhi bhi pehle jaisa hi update hoga (WordPress → Plugins → Upload Plugin). Ye checkout aur payments chalata hai, isliye ise auto-deploy me nahi daala gaya. Agar baad me iska bhi auto-deploy chahiye, to ek alag FTP account (`public_html/admin/wp-content/plugins/harinam-store-api`) ke saath ek doosra job add kiya ja sakta hai.
+
+Payment page design (version 1.0.3) ka current source `wordpress-plugin/harinam-store-api/` hai. Is poore folder ka plugin ZIP install/update karna hoga, jisme `templates/order-pay.php` aur `assets/payment-page.css` bhi shamil hain; sirf frontend push se payment screen ka design update nahi hoga. Local design preview `tests/payment-page-preview.html` ko `php tests/payment-page-check.php --preview` se generate kiya ja sakta hai. Preview dummy order dikhata hai aur payment button disabled hai; koi real order ya payment create nahi hota.

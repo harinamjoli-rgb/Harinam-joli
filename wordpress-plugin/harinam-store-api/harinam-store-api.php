@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Harinam Store API
  * Description: Secure WooCommerce REST API for the Harinam Joli static storefront.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * WC requires at least: 8.0
@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'HARINAM_STORE_API_VERSION', '1.0.2' );
+define( 'HARINAM_STORE_API_VERSION', '1.0.3' );
 define( 'HARINAM_STORE_API_NAMESPACE', 'harinam/v1' );
 define( 'HARINAM_STORE_FRONTEND_ORIGIN', 'https://harinamjoli.in' );
 
@@ -25,11 +25,28 @@ add_filter( 'woocommerce_available_payment_gateways', 'harinam_store_api_filter_
 add_filter( 'woocommerce_get_return_url', 'harinam_store_api_gateway_return_url', 10, 2 );
 add_filter( 'woocommerce_get_checkout_order_received_url', 'harinam_store_api_gateway_return_url', 10, 2 );
 add_filter( 'woocommerce_get_view_order_url', 'harinam_store_api_gateway_return_url', 10, 2 );
+add_filter( 'template_include', 'harinam_store_api_payment_template', 99 );
 add_action( 'set_logged_in_cookie', 'harinam_store_api_secure_logged_in_cookie', 99, 6 );
 add_action( 'harinam_store_api_delete_idempotency_key', 'harinam_store_api_delete_idempotency_key' );
 
 function harinam_store_api_origin() {
 	return (string) apply_filters( 'harinam_store_frontend_origin', HARINAM_STORE_FRONTEND_ORIGIN );
+}
+
+function harinam_store_api_payment_template( $template ) {
+	if ( ! function_exists( 'is_checkout_pay_page' ) || ! is_checkout_pay_page() ) {
+		return $template;
+	}
+	$order = wc_get_order( absint( get_query_var( 'order-pay' ) ) );
+	if ( ! $order || ! $order->get_meta( '_harinam_store_api' ) ) {
+		return $template;
+	}
+	$payment_template = __DIR__ . '/templates/order-pay.php';
+	if ( ! is_file( $payment_template ) ) {
+		return $template;
+	}
+	nocache_headers();
+	return $payment_template;
 }
 
 function harinam_store_api_secure_logged_in_cookie( $cookie, $expire ) {

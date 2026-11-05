@@ -1,0 +1,45 @@
+<div class="qr-payment" id="payment-methods-preview" aria-describedby="preview-payment-note">
+  <div class="payment-method-tabs" role="tablist" aria-label="Payment method">
+    <button id="payment-method-qr" type="button" role="tab" data-payment-method="qr" aria-controls="payment-panel-qr" aria-selected="true"><b>Scan QR</b><span>UPI apps</span></button>
+    <button id="payment-method-upi" type="button" role="tab" data-payment-method="upi" aria-controls="payment-panel-upi" aria-selected="false" tabindex="-1"><b>UPI ID</b><span>Pay with your ID</span></button>
+    <button id="payment-method-card" type="button" role="tab" data-payment-method="card" aria-controls="payment-panel-card" aria-selected="false" tabindex="-1"><b>Cards</b><span>Debit / Credit</span></button>
+  </div>
+  <section class="payment-method-panel" id="payment-panel-qr" data-payment-panel="qr" role="tabpanel" aria-labelledby="payment-method-qr" tabindex="0">
+  <div class="qr-title-row"><div><h3>Scan &amp; pay with UPI</h3><p>A little closer to your daily devotion.</p></div><span class="qr-upi-label">UPI</span></div>
+  <div class="qr-scan-layout">
+    <div class="qr-scan-column">
+      <div class="qr-visual"><img src="http://127.0.0.1:8000/tests/assets/payment-preview-qr.svg" width="216" height="216" alt="Sample QR code containing design preview text only, not a payment request" /><span>Sample QR · Not for payment</span></div>
+      <div class="qr-timer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>QR expires in <b>04:59</b></span></div>
+      <span class="qr-timer-caption">Sample timer for design preview</span>
+    </div>
+    <div class="qr-instructions">
+      <p class="qr-instruction-title">Pay in three simple steps</p>
+      <ol><li><span>1</span><div><b>Open your UPI app</b><p>Use your preferred payment app.</p></div></li><li><span>2</span><div><b>Scan this QR code</b><p>Point your camera at the code.</p></div></li><li><span>3</span><div><b>Confirm the amount</b><p>Check ₹998 and approve in your app.</p></div></li></ol>
+      <p class="qr-apps-caption">Pay using any UPI app</p>
+      <div class="qr-apps" aria-label="Example UPI apps"><span class="qr-app-gpay">GPay</span><span class="qr-app-phonepe">PhonePe</span><span class="qr-app-paytm">paytm</span><span class="qr-app-bhim">BHIM</span></div>
+    </div>
+  </div>
+  <div class="qr-waiting"><span class="qr-waiting-dot" aria-hidden="true"></span><div><b>Waiting for payment</b><p>Your order status will update after confirmation.</p></div><span class="qr-status-preview">Sample status</span></div>
+  <div class="qr-phone-option"><div><b>Paying on this phone?</b><p>Continue directly in your UPI app.</p></div><button class="qr-phone-button" type="button" disabled>Open UPI app <span aria-hidden="true">↗</span></button></div>
+  </section>
+  <section class="payment-method-panel" id="payment-panel-upi" data-payment-panel="upi" role="tabpanel" aria-labelledby="payment-method-upi" tabindex="0" hidden>
+    <div class="qr-title-row"><div><h3>Pay with your UPI ID</h3><p>Use the UPI ID linked to your payment app.</p></div><span class="qr-upi-label">UPI</span></div>
+    <div class="payment-preview-fields">
+      <label for="preview-upi-id">Your UPI ID<input id="preview-upi-id" type="text" placeholder="yourname@bank" autocomplete="off" spellcheck="false" disabled /><small>Example: yourname@bank</small></label>
+    </div>
+    <div class="payment-method-tip"><span aria-hidden="true">✓</span><p>Approve the payment request in your UPI app to complete your order.</p></div>
+    <button class="preview-pay-action" type="button" disabled>Pay ₹998 with UPI</button>
+    <div class="payment-method-apps"><span>UPI apps</span><div class="qr-apps" aria-label="Example UPI apps"><span class="qr-app-gpay">GPay</span><span class="qr-app-phonepe">PhonePe</span><span class="qr-app-paytm">paytm</span><span class="qr-app-bhim">BHIM</span></div></div>
+  </section>
+  <section class="payment-method-panel" id="payment-panel-card" data-payment-panel="card" role="tabpanel" aria-labelledby="payment-method-card" tabindex="0" hidden>
+    <div class="qr-title-row"><div><h3>Debit / Credit Card</h3><p>Choose the card you would like to pay with.</p></div><div class="preview-card-brands" aria-label="Example card networks"><img src="http://127.0.0.1:8000/assets/payment-visa.png" width="40" height="28" alt="Visa" /><img src="http://127.0.0.1:8000/assets/payment-mastercard.png" width="40" height="28" alt="Mastercard" /></div></div>
+    <div class="payment-preview-fields">
+      <label for="preview-card-number">Card number<input id="preview-card-number" type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="off" disabled /></label>
+      <div class="payment-card-field-row"><label for="preview-card-expiry">Expiry date<input id="preview-card-expiry" type="text" placeholder="MM / YY" autocomplete="off" disabled /></label><label for="preview-card-cvv">CVV<input id="preview-card-cvv" type="password" placeholder="•••" autocomplete="off" disabled /></label></div>
+      <label for="preview-card-name">Name on card<input id="preview-card-name" type="text" placeholder="Name as printed on your card" autocomplete="off" disabled /></label>
+    </div>
+    <div class="payment-method-tip"><span aria-hidden="true">✓</span><p>Your bank may ask you to confirm the payment before it is completed.</p></div>
+    <button class="preview-pay-action" type="button" disabled>Pay ₹998 by card</button>
+  </section>
+  <p class="qr-preview-note" id="preview-payment-note">Design preview only. The QR, timer and payment fields are illustrative; no payment can be made here.</p>
+</div>

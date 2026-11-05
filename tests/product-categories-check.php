@@ -32,5 +32,5 @@ define( 'ABSPATH', '/' );
 function add_action() {}
 function add_filter() {}
 require __DIR__ . '/../wordpress-plugin/harinam-store-api/harinam-store-api.php';
-check( '1.0.2' === HARINAM_STORE_API_VERSION, 'The complete updated plugin parses and loads.' );
+check( '1.0.3' === HARINAM_STORE_API_VERSION, 'The complete updated plugin parses and loads.' );
 echo "PASS: child-only assignments include real parent categories, with deduplication and safe empty/error handling\n";

@@ -104,7 +104,7 @@ assert.ok(read("js/account.js").includes('returnTo && /^[a-z0-9_-]+\\.html(?:\\?
 for (const page of ["store", "products", "product-details", "about", "contact", "account", "cart", "checkout", "wishlist", "profile", "tracking", "privacy-policy", "return-refund-policy", "shipping-delivery-policy", "terms-and-conditions"]) {
   const html = read(`${page}.html`);
   assert.ok(html.includes('href="css/auth.css?v=4"'), `${page}: shared auth design`);
-  assert.ok(html.includes('src="js/auth.js?v=5"'), `${page}: shared popup behavior`);
+  assert.ok(html.includes('src="js/auth.js?v=6"'), `${page}: shared popup behavior`);
   assert.ok(html.indexOf('js/auth.js') > html.indexOf('js/shop.js'), `${page}: API ready before auth binding`);
 }
 console.log("PASS: shared auth views, keyboard tabs, password visibility, duplicate requests, signup mismatch, errors, reset and protected returns");

@@ -74,6 +74,7 @@ for (const inline of [false, true]) {
   f.click(); f.click();
   await settled();
   assert.ok(f.dialog.open && f.email.focused && f.accountButton.clicked);
+  assert.ok(f.shown(), "Manual login also prevents a later automatic prompt in the visit");
   assert.equal(f.root.parentElement, f.dialog);
   assert.equal(f.requests(), inline ? 0 : 1, "Concurrent openings share one form request");
   f.close.fire("click");
@@ -103,6 +104,7 @@ assert.equal(automatic.timers[0].delay, 10000, "Guest popup starts after ten sec
 assert.equal(automatic.requests(), 0, "Do not open or load a popup before its delay");
 await automatic.timers[0].callback();
 assert.ok(automatic.dialog.open && automatic.email.focused);
+assert.ok(automatic.shown(), "Remember the prompt only after the dialog opens");
 automatic.close.fire('click');
 await automatic.timers[0].callback();
 assert.ok(!automatic.dialog.open, "Dismissing the popup prevents another automatic prompt on the same page");
@@ -111,11 +113,16 @@ assert.ok(automatic.dialog.open, "Manual account access still works after dismis
 
 const returningGuest = fixture({ seen: true });
 await returningGuest.timers[0].callback();
-assert.ok(returningGuest.dialog.open, 'An old once-per-visit flag must not suppress the popup after a refresh');
+await returningGuest.reveal();
+await returningGuest.closeOtherDialog();
+assert.ok(!returningGuest.dialog.open && returningGuest.requests() === 0, 'Refreshes and other pages in the same visit do not repeat the automatic popup');
+returningGuest.click(); await settled();
+assert.ok(returningGuest.dialog.open, 'Returning guests can still open login themselves');
 for (const options of [{ signedIn: true }, { hidden: true }, { otherDialog: true }]) {
   const skipped = fixture(options);
   await skipped.timers[0].callback();
   assert.equal(skipped.requests(), 0, `Do not interrupt an ineligible visit: ${JSON.stringify(options)}`);
+  assert.ok(!skipped.shown(), "Deferred or signed-in visits do not consume the prompt");
 }
 const background = fixture({ hidden: true });
 await background.timers[0].callback();
@@ -131,10 +138,13 @@ await earlyVisibility.reveal();
 assert.equal(earlyVisibility.requests(), 0, 'Visibility changes cannot open the prompt before ten seconds');
 const privateMode = fixture({ storageFails: true });
 await privateMode.timers[0].callback();
-assert.ok(privateMode.dialog.open, "Blocked session storage must not break the login popup");
+assert.ok(!privateMode.dialog.open, "When a visit cannot be remembered, skip automatic prompts rather than repeat them on every page");
+privateMode.click(); await settled();
+assert.ok(privateMode.dialog.open, "Manual login still works when session storage is blocked");
 const unavailable = fixture({ fail: true });
 await unavailable.timers[0].callback();
 assert.ok(!unavailable.dialog.open && !unavailable.location.href, "Automatic popup errors must not navigate away from shopping");
+assert.ok(!unavailable.shown(), "A failed form request must not be recorded as an opened popup");
 let resolveSession;
 const delayed = fixture({ sessionReady: new Promise(resolve => { resolveSession = resolve; }) });
 const delayedTimer = delayed.timers[0].callback();
@@ -142,4 +152,4 @@ await delayedTimer;
 assert.ok(delayed.dialog.open, 'A slow session request cannot block the ten-second popup indefinitely');
 delayed.signIn(); resolveSession(); await settled();
 assert.ok(!delayed.dialog.open, 'An authenticated session arriving later immediately closes the guest prompt');
-console.log("PASS: 10-second popup on every page load/refresh, legacy flag ignored, background/modal deferral, auth guards, dismissal and offline fallback");
+console.log("PASS: one automatic login popup per visit, no repeat on refresh/navigation, manual login, background/modal deferral, blocked storage, auth guards and offline fallback");

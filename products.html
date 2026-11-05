@@ -97,6 +97,8 @@
       <div class="page-shell catalog-layout" id="catalog-layout">
         <aside class="filters" id="filters" aria-label="Product filters">
           <div class="mobile-filter-heading"><h2>Filters</h2><button class="plain-button" id="close-filters" type="button" aria-label="Close filters">×</button></div>
+          <p id="filters-status" role="status">Loading filters…</p>
+          <div id="filter-controls" hidden>
           <label class="search-box">
             <img loading="lazy" decoding="async" src="assets/product-search.svg?v=2" alt="" />
             <input id="product-search" type="search" placeholder="Search" autocomplete="off" />
@@ -108,46 +110,26 @@
             <label><input type="checkbox" name="availability" value="out-of-stock" /> Out Of Stock</label>
           </details>
 
-          <details open>
+          <details open data-filter-group="category">
             <summary>All Products Categories</summary>
-            <label><input type="checkbox" name="category" value="Japa Bag" /> Japa Bag</label>
-            <label><input type="checkbox" name="category" value="Vastra" /> Vastra</label>
-            <label><input type="checkbox" name="category" value="Brooches" /> Brooches</label>
           </details>
 
-          <details open>
+          <details open data-filter-group="style">
             <summary>Shop By Categories</summary>
-            <label><input type="checkbox" name="style" value="Traditional" /> Traditional</label>
-            <label><input type="checkbox" name="style" value="Printed" /> Printed</label>
-            <label><input type="checkbox" name="style" value="Daily Chanting" /> Daily Chanting</label>
-            <label><input type="checkbox" name="style" value="Travel" /> Travel</label>
-            <label><input type="checkbox" name="style" value="Temple" /> Temple</label>
-            <label><input type="checkbox" name="style" value="Gift" /> Gift</label>
           </details>
 
           <details open class="price-filter">
             <summary>Filter by Price</summary>
-            <output id="price-output" for="price-range">Up to Rs. 999</output>
+            <output id="price-output" for="price-range"></output>
             <label class="visually-hidden" for="price-range">Maximum product price</label>
-            <input id="price-range" type="range" min="0" max="999" step="100" value="999" />
-            <div><span>Rs. 0</span><span>Rs. 999</span></div>
+            <input id="price-range" type="range" min="0" max="100" step="100" value="100" />
+            <div><span>Rs. 0</span><span></span></div>
           </details>
 
           <details open class="featured-products">
             <summary>Featured Product</summary>
-            <button class="featured-card" type="button" data-product-id="vitthal-1">
-              <img loading="lazy" decoding="async" src="assets/product-featured-one.png" alt="Vitthal printed japa bag" />
-              <span><b>Vitthal Printed Japa Bag</b><em>★★★★★</em><small>Rs 599.00</small></span>
-            </button>
-            <button class="featured-card" type="button" data-product-id="radha-rani-1">
-              <img loading="lazy" decoding="async" src="assets/bestsellers-frame149051-df2d1ff7.png" alt="Radha Rani printed japa bag" />
-              <span><b>Radha Rani Japa Bag</b><em>★★★★★</em><small>Rs 599.00</small></span>
-            </button>
-            <button class="featured-card" type="button" data-product-id="mahaprabhu-1">
-              <img loading="lazy" decoding="async" src="assets/product-featured-two.png" alt="Mahaprabhu japa bag" />
-              <span><b>Mahaprabhu Japa Bag</b><em>★★★★★</em><small>Rs 599.00</small></span>
-            </button>
           </details>
+          </div>
         </aside>
 
         <section class="products-region" aria-label="Products">
@@ -226,9 +208,9 @@
     <output class="toast" id="toast" aria-live="polite"></output>
     <script src="js/catalog.js?v=3"></script>
     <script src="js/shop.js?v=28"></script>
-    <script src="js/auth.js?v=5"></script>
+    <script src="js/auth.js?v=6"></script>
     <script src="js/instagram.js?v=4"></script>
-    <script src="js/products.js?v=28"></script>
+    <script src="js/products.js?v=29"></script>
     <script src="js/vendor/lenis-1.3.27.min.js"></script>
     <script src="js/storefront.js?v=3"></script>
   </body>
