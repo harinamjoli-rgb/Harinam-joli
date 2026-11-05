@@ -34,6 +34,7 @@ jobs:
             **/.DS_Store
             .vscode/**
             backups/**
+            admin/**
             tests/**
             wordpress-plugin/**
             harinam-store-api/**
