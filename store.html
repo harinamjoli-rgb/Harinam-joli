@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@400&family=DM+Sans:wght@400;500&family=Inter:wght@300;400;500;600&family=Jacques+Francois&family=Lato:wght@400;500&family=Sarala&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css?v=71" />
     <link rel="stylesheet" href="css/shop.css?v=27" />
-    <link rel="stylesheet" href="css/home-figma.css?v=25" />
+    <link rel="stylesheet" href="css/home-figma.css?v=26" />
     <link rel="stylesheet" href="css/footer.css?v=13" />
     <link rel="stylesheet" href="css/instagram.css?v=5" />
     <link rel="stylesheet" href="css/vendor/lenis-1.3.27.css" />
@@ -69,10 +69,19 @@
           </div>
       </nav>
 
-      <section class="hero" id="home" data-node-id="211:101">
-        <a class="hero-link" href="products.html" aria-label="Shop Harinam Joli products">
-          <img class="hero-slide hero-slide-first is-active" loading="eager" decoding="async" fetchpriority="high" src="assets/home-figma-hero.png" alt="" />
-        </a>
+      <section class="hero" id="home" data-node-id="211:101" aria-label="Featured Japa Bags" aria-roledescription="carousel" tabindex="0">
+        <div class="hero-slide is-active" aria-hidden="false">
+          <img loading="eager" decoding="async" fetchpriority="high" src="assets/home-banner-1.jpg" width="1440" height="600" alt="Premium Japa Bags in sky blue, neon green and yellow" />
+          <a class="hero-link" href="products.html?category=Digital%20Print" aria-label="Shop Collection: Digital Print Japa Bags"></a>
+        </div>
+        <div class="hero-slide" aria-hidden="true" inert>
+          <img loading="eager" decoding="async" src="assets/home-banner-2.jpg" width="1440" height="600" alt="Carry Your Devotion with printed devotional Japa Bags" />
+          <a class="hero-link" href="products.html?category=Digital%20Print" aria-label="Shop Collection: Digital Print Japa Bags"></a>
+        </div>
+        <div class="hero-slide" aria-hidden="true" inert>
+          <img loading="eager" decoding="async" src="assets/home-banner-3.jpg" width="1440" height="600" alt="Carry Your Devotion with Buddha, Jagannath and Radha Krishna Japa Bags" />
+          <a class="hero-link" href="products.html?category=Digital%20Print" aria-label="Shop Collection: Digital Print Japa Bags"></a>
+        </div>
       </section>
 
       <section class="collection-promotion" aria-label="Special offer" data-node-id="558:4372">
@@ -295,7 +304,7 @@
     <script src="js/shop.js?v=28"></script>
     <script src="js/auth.js?v=5"></script>
     <script src="js/instagram.js?v=4"></script>
-    <script src="js/script.js?v=27"></script>
+    <script src="js/script.js?v=28"></script>
     <script src="js/vendor/lenis-1.3.27.min.js"></script>
     <script src="js/storefront.js?v=3"></script>
   </body>

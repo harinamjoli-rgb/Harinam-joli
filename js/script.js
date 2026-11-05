@@ -1,11 +1,31 @@
 const heroSlides = [...document.querySelectorAll(".hero-slide")];
+const hero = document.querySelector(".hero");
+const heroMotion = matchMedia("(prefers-reduced-motion: reduce)");
 let heroIndex = 0;
+let heroPaused = false;
+const setHeroPaused = (paused) => {
+  heroPaused = paused;
+  hero.setAttribute("aria-label", `Featured Japa Bags. Press Space to ${paused ? "resume" : "pause"} banners.`);
+};
+setHeroPaused(heroMotion.matches);
+heroMotion.addEventListener("change", (event) => setHeroPaused(event.matches));
+hero.addEventListener("keydown", (event) => {
+  if (event.code === "Space") {
+    event.preventDefault();
+    setHeroPaused(!heroPaused);
+  }
+});
 const advanceHero = () => {
+  if (heroPaused || document.hidden || hero.matches(":hover, :focus-within")) return;
   const current = heroSlides[heroIndex];
   heroIndex = (heroIndex + 1) % heroSlides.length;
   current.classList.remove("is-active");
   current.classList.add("is-before");
+  current.setAttribute("aria-hidden", "true");
+  current.inert = true;
   heroSlides[heroIndex].classList.add("is-active");
+  heroSlides[heroIndex].setAttribute("aria-hidden", "false");
+  heroSlides[heroIndex].inert = false;
   setTimeout(() => current.classList.remove("is-before"), 700);
 };
 if (heroSlides.length > 1) setInterval(advanceHero, 5000);
