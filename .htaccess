@@ -1,0 +1,28 @@
+# Serve the current storefront before the legacy index.html file.
+DirectoryIndex index.php index.html
+
+# Block the GitHub deploy state file from public access.
+<Files ".ftp-deploy-sync-state.json">
+Require all denied
+</Files>
+
+# Keep the public home URL canonical.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Hide implementation filenames from public storefront URLs.
+RewriteCond %{THE_REQUEST} \s/+[^?\s]*\.html(?:[?\s]) [NC]
+RewriteRule ^(about|account|cart|checkout|contact|products|profile|tracking|wishlist)\.html$ /$1 [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+product-details\.html(?:[?\s]) [NC]
+RewriteRule ^product-details\.html$ /product [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+[^?\s]*\.html(?:[?\s]) [NC]
+RewriteRule ^(privacy-policy|return-refund-policy|shipping-delivery-policy|terms-and-conditions)\.html$ /$1 [R=301,L,NE]
+
+# Serve the existing static files behind clean URLs.
+RewriteRule ^(about|account|cart|checkout|contact|products|profile|tracking|wishlist|product|privacy-policy|return-refund-policy|shipping-delivery-policy|terms-and-conditions)/$ /$1 [R=301,L,NE]
+RewriteRule ^(about|account|cart|checkout|contact|products|profile|tracking|wishlist)/?$ $1.html [L,NC]
+RewriteRule ^product/?$ product-details.html [L,NC]
+RewriteRule ^(privacy-policy|return-refund-policy|shipping-delivery-policy|terms-and-conditions)/?$ $1.html [L,NC]
+</IfModule>

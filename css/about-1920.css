@@ -1,0 +1,129 @@
+.about-page,
+.about-page .flow-main {
+  background: #fff;
+}
+
+.about-page .page-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 13px;
+  background: #fdf5f0;
+}
+
+.about-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #756b65;
+  font-size: 13px;
+}
+
+.about-breadcrumb a:hover {
+  color: var(--brown);
+}
+
+.about-page .about-story {
+  padding-block: 80px 88px;
+}
+
+.about-page .about-copy > p:not(.flow-eyebrow) {
+  max-width: 520px;
+}
+
+.about-page .about-values {
+  background: #fdf5f0;
+}
+
+.about-ownership {
+  margin: 16px 0 0;
+  color: #756b65;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (min-width: 1051px) {
+  .about-page {
+    zoom: calc(100vw / 1440px);
+  }
+
+  .about-page .site-header,
+  .about-page .announcement {
+    height: 50px;
+  }
+
+  .about-page .announcement-content {
+    top: 13px;
+    height: 24px;
+  }
+
+  .about-page .announcement-content p {
+    font-size: 14px;
+  }
+
+  .about-page .shipping-arrow {
+    width: 24px;
+    height: 24px;
+  }
+
+  .about-page .navbar .nav-menu {
+    width: 745px;
+    flex: 0 0 745px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .about-page .site-header,
+  .about-page .site-header .announcement {
+    width: 100%;
+    height: 50px;
+  }
+
+  .about-page .site-header .announcement-content {
+    width: 610px;
+    height: 24px;
+  }
+
+  .about-page .site-header .announcement-content p {
+    font-size: 14px;
+  }
+
+  .about-page .navbar,
+  .about-page .navbar .nav-inner,
+  .about-page .navbar .brand-logo {
+    height: 86px;
+  }
+
+  .about-page .navbar .nav-inner {
+    width: 1280px;
+  }
+
+  .about-page .navbar .brand-logo {
+    width: 68px;
+    flex-basis: 68px;
+  }
+
+  .about-page .navbar .nav-menu {
+    zoom: 1;
+  }
+
+  .about-page .navbar .nav-actions {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-page .about-story {
+    padding-block: 54px 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page .about-story {
+    padding-block: 42px 58px;
+  }
+
+  .about-page .page-title {
+    gap: 8px;
+  }
+}

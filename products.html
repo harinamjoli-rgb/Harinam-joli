@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Shop Harinam Joli devotional products" />
+    <title>All Products | Harinam Joli</title>
+    <script src="js/launch-guard.js?v=2"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Jacques+Francois&family=Sarala&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/products.css?v=29" />
+    <link rel="stylesheet" href="css/shop.css?v=27" />
+    <link rel="stylesheet" href="css/products-figma.css?v=6" />
+    <link rel="stylesheet" href="css/footer.css?v=13" />
+    <link rel="stylesheet" href="css/instagram.css?v=5" />
+    <link rel="stylesheet" href="css/vendor/lenis-1.3.27.css" />
+    <link rel="stylesheet" href="css/storefront.css?v=5" />
+    <link rel="stylesheet" href="css/auth.css?v=4" />
+  </head>
+  <body class="product-page storefront-page">
+    <header class="site-header">
+      <div class="announcement"><div class="announcement-content">
+        <button class="plain-button shipping-arrow" type="button" aria-label="Previous announcement"><img src="assets/header-vuesax-outline-arrow-left-5a09dae7.svg?v=2" alt="" /></button>
+        <p>Enjoy Free Shipping 599+ in India</p>
+        <button class="plain-button shipping-arrow" type="button" aria-label="Next announcement"><img src="assets/header-vuesax-outline-arrow-right-ef41ad17.svg?v=2" alt="" /></button>
+      </div></div>
+    </header>
+
+    <nav class="navbar storefront-nav" aria-label="Main navigation">
+        <div class="page-shell nav-inner">
+          <a class="brand-logo" href="/" aria-label="Harinam Joli home">
+            <img loading="eager" decoding="async" src="assets/header-logo-horizontal.png?v=1" alt="Harinam Joli" />
+          </a>
+          <button class="plain-button mobile-menu-button" id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+            <img loading="lazy" decoding="async" src="assets/header-vuesax-outline-menu-fd340f04.svg?v=2" alt="" />
+          </button>
+          <div class="nav-menu" id="nav-menu">
+            <a href="/">HOME</a>
+            <i aria-hidden="true"></i><div class="nav-links">
+            <a class="nav-products active" href="products.html"><img loading="lazy" decoding="async" src="assets/nav-menu.svg?v=2" alt="" />All PRODUCTS</a>
+            <div class="nav-category"><a class="nav-category-link" href="products.html?category=Japa%20Bag">JAPA BAGS</a><details class="nav-dropdown">
+                  <summary aria-label="Open Japa Bags submenu"><img src="assets/nav-arrow-down.svg?v=2" width="14" height="14" alt="" /></summary>
+                  <div class="nav-dropdown-menu">
+                    <a href="products.html?category=Japa%20Bag">All Japa Bags</a>
+                    <a href="products.html?category=Digital%20Print">Digital Print</a>
+                  </div>
+                </details></div>
+            <a href="products.html?category=Vastra">VASTRA</a>
+            <a href="products.html?category=Brooches">BROOCHES</a><a href="products.html?category=Books">BOOKS</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+          </div></div>
+          <div class="nav-actions">
+            <button class="plain-button" id="header-search" data-search-trigger type="button" aria-label="Search products"><img loading="lazy" decoding="async" src="assets/header-vuesax-outline-search-normal-9f2ae478.svg?v=2" alt="" /></button>
+            <a class="plain-button nav-action-link" href="cart.html?v=2" aria-label="Shopping cart"><span class="visually-hidden">Shopping cart</span><img loading="lazy" decoding="async" src="assets/header-vuesax-outline-bag2-a3f158fd.svg?v=2" alt="" /><span class="cart-count" data-cart-count aria-label="0 cart items">0</span></a>
+            <a class="plain-button wishlist-nav" id="open-wishlist" href="wishlist.html" aria-label="View wishlist">
+              <span class="visually-hidden">Wishlist</span>
+              <img loading="lazy" decoding="async" src="assets/header-vuesax-outline-heart-9c1e2a6c.svg?v=2" alt="" />
+              <span class="count-badge" id="wishlist-count" data-wishlist-count aria-label="0 wishlist items">0</span>
+            </a>
+            <a class="plain-button nav-action-link" href="account.html" data-account-link aria-label="Login or create account"><img loading="lazy" decoding="async" src="assets/header-vuesax-outline-profile-circle-45761b3b.svg?v=2" alt="" /></a>
+          </div>
+        </div>
+    </nav>
+
+    <main>
+      <section class="page-title" aria-label="All Products collection">
+        <h1>All Products</h1>
+      </section>
+
+      <section class="catalog-toolbar" aria-label="Product controls">
+        <div class="page-shell toolbar-inner">
+          <div class="toolbar-group">
+            <button class="toolbar-button" id="toggle-filters" type="button" aria-expanded="true" aria-controls="filters">
+              <img loading="lazy" decoding="async" src="assets/product-filter.svg?v=2" width="22" height="22" alt="" /><span>Hide Filter</span>
+            </button>
+            <i aria-hidden="true"></i>
+            <label class="sort-control">Sort by:
+              <span>
+                <select id="sort-products" aria-label="Sort products">
+                  <option value="position">Position</option>
+                  <option value="name">Name A–Z</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                </select>
+                <img loading="lazy" decoding="async" src="assets/product-chevron.svg?v=2" width="18" height="18" alt="" />
+              </span>
+            </label>
+            <i aria-hidden="true"></i>
+            <button class="toolbar-button" id="refresh-products" type="button"><img loading="lazy" decoding="async" src="assets/product-refresh.svg?v=2" width="24" height="24" alt="" /><span>Refresh</span></button>
+          </div>
+          <p id="result-count" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <div class="page-shell catalog-layout" id="catalog-layout">
+        <aside class="filters" id="filters" aria-label="Product filters">
+          <div class="mobile-filter-heading"><h2>Filters</h2><button class="plain-button" id="close-filters" type="button" aria-label="Close filters">×</button></div>
+          <label class="search-box">
+            <img loading="lazy" decoding="async" src="assets/product-search.svg?v=2" alt="" />
+            <input id="product-search" type="search" placeholder="Search" autocomplete="off" />
+          </label>
+
+          <details open>
+            <summary>All Products Availability</summary>
+            <label><input type="checkbox" name="availability" value="in-stock" /> In Stock</label>
+            <label><input type="checkbox" name="availability" value="out-of-stock" /> Out Of Stock</label>
+          </details>
+
+          <details open>
+            <summary>All Products Categories</summary>
+            <label><input type="checkbox" name="category" value="Japa Bag" /> Japa Bag</label>
+            <label><input type="checkbox" name="category" value="Vastra" /> Vastra</label>
+            <label><input type="checkbox" name="category" value="Brooches" /> Brooches</label>
+          </details>
+
+          <details open>
+            <summary>Shop By Categories</summary>
+            <label><input type="checkbox" name="style" value="Traditional" /> Traditional</label>
+            <label><input type="checkbox" name="style" value="Printed" /> Printed</label>
+            <label><input type="checkbox" name="style" value="Daily Chanting" /> Daily Chanting</label>
+            <label><input type="checkbox" name="style" value="Travel" /> Travel</label>
+            <label><input type="checkbox" name="style" value="Temple" /> Temple</label>
+            <label><input type="checkbox" name="style" value="Gift" /> Gift</label>
+          </details>
+
+          <details open class="price-filter">
+            <summary>Filter by Price</summary>
+            <output id="price-output" for="price-range">Up to Rs. 999</output>
+            <label class="visually-hidden" for="price-range">Maximum product price</label>
+            <input id="price-range" type="range" min="0" max="999" step="100" value="999" />
+            <div><span>Rs. 0</span><span>Rs. 999</span></div>
+          </details>
+
+          <details open class="featured-products">
+            <summary>Featured Product</summary>
+            <button class="featured-card" type="button" data-product-id="vitthal-1">
+              <img loading="lazy" decoding="async" src="assets/product-featured-one.png" alt="Vitthal printed japa bag" />
+              <span><b>Vitthal Printed Japa Bag</b><em>★★★★★</em><small>Rs 599.00</small></span>
+            </button>
+            <button class="featured-card" type="button" data-product-id="radha-rani-1">
+              <img loading="lazy" decoding="async" src="assets/bestsellers-frame149051-df2d1ff7.png" alt="Radha Rani printed japa bag" />
+              <span><b>Radha Rani Japa Bag</b><em>★★★★★</em><small>Rs 599.00</small></span>
+            </button>
+            <button class="featured-card" type="button" data-product-id="mahaprabhu-1">
+              <img loading="lazy" decoding="async" src="assets/product-featured-two.png" alt="Mahaprabhu japa bag" />
+              <span><b>Mahaprabhu Japa Bag</b><em>★★★★★</em><small>Rs 599.00</small></span>
+            </button>
+          </details>
+        </aside>
+
+        <section class="products-region" aria-label="Products">
+          <div class="product-grid" id="product-grid"></div>
+          <p class="empty-state" id="empty-state" hidden>No products match your filters.</p>
+          <nav class="pagination" id="pagination" aria-label="Product pages"></nav>
+        </section>
+      </div>
+
+      <section class="instagram-section" aria-labelledby="instagram-title" data-instagram-feed data-instagram-source="curated">
+        <div class="instagram-heading"><p>Follow us on Instagram!</p><h2 id="instagram-title">Explore the Instagram Universe!</h2></div>
+        <div class="instagram-toolbar"><a class="instagram-profile" href="https://www.instagram.com/harinamjoli/" target="_blank" rel="noopener noreferrer"><img src="assets/tracking-instagram.svg?v=2" width="20" height="20" alt="" />@harinamjoli ↗</a><div class="instagram-controls"><button type="button" data-instagram-previous aria-label="Previous Instagram posts" aria-controls="instagram-posts">←</button><button type="button" data-instagram-next aria-label="Next Instagram posts" aria-controls="instagram-posts">→</button></div></div>
+        <div class="instagram-grid" id="instagram-posts" role="region" aria-label="Instagram photos and reels" tabindex="0">
+          <!-- shortcut: Saved public post previews; the connected feed endpoint replaces them when available. -->
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/reel/DepZL9-Km3x/" target="_blank" rel="noopener noreferrer" aria-label="Watch @harinamjoli reel on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/01-DepZL9-Km3x.jpg" alt="New japa bag ( Jagnnath) printed premium Bag" /><span class="instagram-media-label" aria-hidden="true">Reel ↗</span></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/reel/Dej8qxoKuck/" target="_blank" rel="noopener noreferrer" aria-label="Watch @harinamjoli reel on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/02-Dej8qxoKuck.jpg" alt="New japa bag" /><span class="instagram-media-label" aria-hidden="true">Reel ↗</span></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/reel/DeT8XC6q2tW/" target="_blank" rel="noopener noreferrer" aria-label="Watch @harinamjoli reel on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/03-DeT8XC6q2tW.jpg" alt="Hare Krishna printed Japa 📿 mala ( 3 Different colours )" /><span class="instagram-media-label" aria-hidden="true">Reel ↗</span></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/reel/DeR8cGjKtlL/" target="_blank" rel="noopener noreferrer" aria-label="Watch @harinamjoli reel on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/04-DeR8cGjKtlL.jpg" alt="Premium japabag ✨" /><span class="instagram-media-label" aria-hidden="true">Reel ↗</span></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/DeDuGzkE0lR/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/05-DeDuGzkE0lR.jpg" alt="Mahaprabhu printed premium Japa bag" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/Dd6F4Elk6_Y/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/06-Dd6F4Elk6_Y.jpg" alt="Blue( Hare krishna ) name printed premium japa bag" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/Dd5vfnrilue/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/07-Dd5vfnrilue.jpg" alt="Green( Hare krishna ) name printed premium japa bag" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/Dd3VUTQk-BI/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/08-Dd3VUTQk-BI.jpg" alt="Yellow ( Hare krishna ) name printed premium japa bag" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/Dd2_AWMk9pU/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/09-Dd2_AWMk9pU.jpg" alt="Aindra prabhu premium japa bag" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/Dbq6HtbE_pQ/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/10-Dbq6HtbE_pQ.jpg" alt="harinamjoli harinamjoli &amp;$ Beautiful Jagnnath Japa Bead Bag Aapki daily chanting aur bhakti ke liye ek atyant sundar, floral aesthetic aur premium quality Japa Bag!" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/DbnJQg2inn3/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/11-DbnJQg2inn3.jpg" alt="#harinamjoli. 💐Beautiful Vitthal printed premium Bead bag 🧡" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/DbLSlNMCgUL/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/12-DbLSlNMCgUL.jpg" alt="🌸 Beautiful Shrimati Radharani Japa Bead Bag 🌸" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/p/DbLPwl6CorW/" target="_blank" rel="noopener noreferrer" aria-label="View @harinamjoli post on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/13-DbLPwl6CorW.jpg" alt="✨ Beautiful Shri Gaura Mahaprabhu Japa Bead Bag ✨" /></a>
+          <a class="instagram-post-link instagram-preview" href="https://www.instagram.com/reel/DapK0YvKdKY/" target="_blank" rel="noopener noreferrer" aria-label="Watch @harinamjoli reel on Instagram"><img loading="lazy" decoding="async" src="assets/instagram/14-DapK0YvKdKY.jpg" alt="✨ Something sacred is coming your way! ✨" /><span class="instagram-media-label" aria-hidden="true">Reel ↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="store-footer" id="footer">
+      <div class="store-footer__inner">
+        <div class="store-footer__brand">
+          <a class="store-footer__logo" href="/" aria-label="Harinam Joli home"><img loading="lazy" decoding="async" src="assets/footer-emblem.png" width="80" height="80" alt="" /><img loading="lazy" decoding="async" src="assets/footer-wordmark.png" width="140" height="48" alt="Harinam Joli" /></a>
+          <p><strong>Email:</strong> <a href="mailto:harinamjoli@gmail.com">harinamjoli@gmail.com</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919913032130" target="_blank" rel="noopener noreferrer">+91 99130 32130</a></p>
+        </div>
+        <div class="store-footer__navigation">
+          <nav class="store-footer__column" aria-label="Footer support">
+            <h2>SUPPORT</h2>
+            <div class="store-footer__links"><a href="products.html">All Products</a><a href="about.html">About Us</a><a href="tracking.html">Track Your Order</a><a href="contact.html">Contact Us</a></div>
+          </nav>
+          <div class="store-footer__column">
+            <h2>POLICIES</h2>
+            <div class="store-footer__links"><a href="privacy-policy.html">Privacy Policy</a><a href="return-refund-policy.html">Return, Refund &amp; Cancellation Policy</a><a href="shipping-delivery-policy.html">Shipping &amp; Delivery Policy</a><a href="terms-and-conditions.html">Terms and Conditions</a></div>
+          </div>
+          <div class="store-footer__column">
+            <h2>FOLLOW US</h2>
+            <p>Japa bags and devotional essentials, made with care.</p>
+            <a href="https://www.instagram.com/harinamjoli/" target="_blank" rel="noopener noreferrer">@harinamjoli</a>
+            <div class="store-footer__socials"><a href="https://www.instagram.com/harinamjoli/" target="_blank" rel="noopener noreferrer" aria-label="Harinam Joli on Instagram"><img loading="lazy" src="assets/tracking-instagram.svg?v=2" width="22" height="22" alt="" /></a><a href="https://wa.me/919913032130" target="_blank" rel="noopener noreferrer" aria-label="Chat with Harinam Joli on WhatsApp"><img loading="lazy" src="assets/whatsapp-logo.png" width="22" height="22" alt="" /></a></div>
+          </div>
+        </div>
+        <aside class="store-footer__newsletter" aria-label="Newsletter signup">
+          <h2>Let’s get in touch</h2>
+          <p>Sign up for our newsletter Now.</p>
+          <form action="mailto:harinamjoli@gmail.com?subject=Newsletter%20subscription" method="post" enctype="text/plain">
+            <label class="visually-hidden" for="footer-newsletter-email">Your email address</label>
+            <input id="footer-newsletter-email" name="Email" type="email" autocomplete="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe now</button>
+          </form>
+          <small>Opens your email app to request updates.</small>
+        </aside>
+      </div>
+      <p class="store-footer__copyright">2026 © Harinamjoli. All Rights Reserved.</p>
+    </footer>
+
+    <dialog class="wishlist-dialog" id="wishlist-dialog">
+      <div class="dialog-heading"><div><p>Saved products</p><h2>My Wishlist</h2></div><button class="plain-button dialog-close" type="button" data-close-dialog="wishlist-dialog" aria-label="Close wishlist">×</button></div>
+      <div class="wishlist-items" id="wishlist-items"></div>
+      <p class="empty-wishlist" id="empty-wishlist">Your wishlist is empty.</p>
+    </dialog>
+
+    <output class="toast" id="toast" aria-live="polite"></output>
+    <script src="js/catalog.js?v=3"></script>
+    <script src="js/shop.js?v=28"></script>
+    <script src="js/auth.js?v=5"></script>
+    <script src="js/instagram.js?v=4"></script>
+    <script src="js/products.js?v=28"></script>
+    <script src="js/vendor/lenis-1.3.27.min.js"></script>
+    <script src="js/storefront.js?v=3"></script>
+  </body>
+</html>

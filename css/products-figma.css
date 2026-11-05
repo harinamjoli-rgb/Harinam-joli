@@ -1,0 +1,203 @@
+/* Product listing: Figma frame 208:290 is a 1440px canvas. */
+.product-page {
+  background: #fff;
+}
+
+.product-page .site-header,
+.product-page .announcement {
+  height: 50px;
+}
+
+.product-page .announcement-content {
+  top: 13px;
+  height: 24px;
+}
+
+.product-page .announcement-content p {
+  font-size: 14px;
+}
+
+.product-page .shipping-arrow {
+  width: 24px;
+  height: 24px;
+}
+
+.product-page .page-title {
+  height: 600px;
+  background: #ece6dc url("../assets/products-figma-hero.png") center / cover no-repeat;
+}
+
+.product-page:not(.category-view) .page-title {
+  height: auto;
+  aspect-ratio: 12 / 5;
+  background-image: url("../assets/all-products-banner.jpg");
+}
+
+.product-page .page-title h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.product-page.category-view .page-title h1 {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 12px 24px;
+  overflow: visible;
+  clip: auto;
+  background: rgb(255 255 255 / 88%);
+  color: #242424;
+  font: 400 34px/1.3 "Jacques Francois", Georgia, serif;
+  white-space: normal;
+}
+
+.product-page .catalog-toolbar {
+  margin-top: 24px;
+}
+
+.product-page .nav-products.active {
+  color: #000;
+}
+
+.product-page .empty-state[hidden],
+.product-page .pagination[hidden],
+.product-page .filters details[hidden] {
+  display: none;
+}
+
+.product-page .product-add:disabled {
+  background: #777;
+  cursor: not-allowed;
+}
+
+.product-page .whatsapp-float {
+  display: none;
+}
+
+@media (min-width: 1051px) {
+  .product-page {
+    zoom: calc(100vw / 1440px);
+  }
+
+  .product-page .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* 21px on the 1440px canvas renders as 28px at a 1920px viewport. */
+  .product-page .product-card .heart-button img {
+    width: 21px;
+    height: 21px;
+  }
+
+  .product-page .product-card .heart-button.active::after {
+    font-size: 21px;
+  }
+
+  .product-page .navbar .nav-menu {
+    width: 745px;
+    flex: 0 0 745px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .product-page .site-header,
+  .product-page .site-header .announcement {
+    width: 100%;
+    height: 50px;
+  }
+
+  .product-page .site-header .announcement-content {
+    width: 610px;
+    height: 24px;
+  }
+
+  .product-page .site-header .announcement-content p {
+    font-size: 14px;
+  }
+
+  .product-page .navbar,
+  .product-page .navbar .nav-inner,
+  .product-page .navbar .brand-logo {
+    height: 86px;
+  }
+
+  .product-page .navbar .nav-inner {
+    width: 1280px;
+  }
+
+  .product-page .navbar .brand-logo {
+    width: 68px;
+    flex-basis: 68px;
+  }
+
+  .product-page .navbar .nav-menu {
+    width: 745px;
+    flex: 0 0 745px;
+    zoom: 1;
+  }
+
+  .product-page .navbar .nav-actions {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1050px) {
+  .product-page .site-header,
+  .product-page .announcement {
+    height: 30px;
+  }
+
+  .product-page .announcement-content {
+    top: 4.5px;
+    height: 21px;
+  }
+
+  .product-page .announcement-content p {
+    font-size: 12px;
+  }
+
+  .product-page .shipping-arrow {
+    width: 21px;
+    height: 21px;
+  }
+
+  .product-page .page-title {
+    height: 347px;
+  }
+}
+
+@media (max-width: 760px) {
+  .product-page .site-header,
+  .product-page .announcement,
+  .product-page .announcement-content {
+    height: 30px;
+  }
+
+  .product-page .announcement-content {
+    top: 0;
+  }
+
+  .product-page .announcement-content p {
+    font-size: 12px;
+  }
+
+  .product-page .shipping-arrow {
+    width: 21px;
+    height: 21px;
+  }
+
+  .product-page .page-title {
+    height: clamp(210px, 50vw, 380px);
+  }
+
+  .product-page .catalog-toolbar {
+    margin-top: 0;
+  }
+}

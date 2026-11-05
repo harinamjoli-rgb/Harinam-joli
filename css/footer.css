@@ -1,0 +1,72 @@
+.store-footer,
+.site[data-node-id="158:973"] > .store-footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  background: #fff;
+  color: var(--ink);
+  border-top: 1px solid #eee5e0;
+  font: 400 14px/1.6 var(--sans);
+}
+.site[data-node-id="158:973"] > .store-footer { margin-top: var(--section-gap); }
+.store-footer__inner {
+  display: grid;
+  grid-template-columns: max-content max-content minmax(320px, 480px);
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px 45px;
+  width: min(1606px, calc(100% - 160px));
+  margin-inline: auto;
+  padding-block: 64px;
+}
+.store-footer__brand,
+.store-footer__column { min-width: 0; }
+.store-footer__navigation { display: grid; grid-template-columns: max-content max-content minmax(0, 250px); align-items: start; gap: 32px; min-width: 0; width: fit-content; max-width: 100%; justify-self: center; }
+.store-footer__logo { display: flex; align-items: center; gap: 12px; width: fit-content; margin-bottom: 20px; }
+.store-footer__logo > img:first-child { width: 80px; height: 80px; object-fit: contain; }
+.store-footer__logo > img:last-child { width: 140px; height: auto; }
+.store-footer__brand p { margin: 0; }
+.store-footer__brand p + p { margin-top: 8px; }
+.store-footer__brand a { overflow-wrap: anywhere; }
+.store-footer__brand strong { font-weight: 500; }
+.store-footer__column h2 { margin: 0 0 24px; color: var(--brown); font: 500 15px/22px var(--sans); }
+.store-footer__links { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.store-footer__links > :is(a, span) { display: block; }
+.store-footer__column p { margin: 0 0 12px; max-width: 250px; }
+.store-footer__socials { display: flex; gap: 12px; margin-top: 20px; }
+.store-footer__socials a { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #e7d8ce; border-radius: 50%; background: #fdf5f0; }
+.store-footer__socials img { display: block; width: 22px; height: 22px; object-fit: contain; }
+.store-footer a:hover { color: var(--brown); text-decoration: underline; text-underline-offset: 4px; }
+.store-footer a:focus-visible { outline: 2px solid var(--brown); outline-offset: 4px; }
+.store-footer__newsletter {
+  align-self: start;
+  min-width: 0;
+}
+.store-footer__newsletter h2 { margin: 0 0 10px; color: var(--brown); font: 400 28px/36px var(--serif); }
+.store-footer__newsletter p { margin: 0 0 20px; color: #666; font-size: 14px; }
+.store-footer__newsletter form { display: flex; }
+.store-footer__newsletter input { flex: 1 1 160px; min-width: 0; width: 100%; min-height: 48px; padding: 12px; border: 1px solid #ddd; border-radius: 5px 0 0 5px; background: #fff; color: var(--ink); font: inherit; font-size: 13px; }
+.store-footer__newsletter button { flex: 0 0 auto; min-height: 48px; padding: 12px 20px; border: 1px solid var(--brown); border-radius: 0 5px 5px 0; background: var(--brown); color: #fff; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
+.store-footer__newsletter button:hover { background: #551400; }
+.store-footer__newsletter :is(input, button):focus-visible { outline: 2px solid var(--brown); outline-offset: 3px; }
+.store-footer__newsletter small { display: block; margin-top: 12px; color: #68584f; font-size: 11px; }
+.store-footer__copyright { margin: 0; padding: 16px; background: var(--brown); color: #fff; text-align: center; font-size: 12px; line-height: 20px; }
+@media (max-width: 1439px) {
+  .store-footer__inner { grid-template-columns: max-content minmax(0, 1fr); }
+  .store-footer__newsletter { grid-column: 1 / -1; width: min(520px, 100%); justify-self: center; }
+}
+@media (max-width: 1200px) {
+  .store-footer__inner { width: calc(100% - 48px); gap: 32px; }
+}
+@media (max-width: 900px) {
+  .store-footer__inner { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 48px; }
+}
+@media (max-width: 600px) {
+  .store-footer__inner { width: calc(100% - 32px); gap: 32px; padding-block: 40px; }
+  .store-footer__navigation { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+  .store-footer__column:has(.store-footer__socials) { grid-column: 1 / -1; }
+  .store-footer__column h2 { margin-bottom: 20px; font-size: 14px; }
+  .store-footer__links { gap: 12px; font-size: 13px; }
+}

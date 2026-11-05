@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harinam Store API Self-check</title>
+    <script src="js/launch-guard.js?v=2"></script>
+  </head>
+  <body>
+    <h1>Harinam Store API Self-check</h1>
+    <pre id="result">Running…</pre>
+    <script src="js/catalog.js?v=3"></script>
+    <script src="js/shop.js?v=28"></script>
+    <script src="js/checkout-process.js?v=3"></script>
+    <script>
+      (async () => {
+        const output = document.querySelector("#result");
+        const passed = [];
+        const assert = (condition, label) => {
+          if (!condition) throw new Error(label);
+          passed.push(`PASS: ${label}`);
+        };
+        try {
+          assert(
+            HarinamConfig.apiBase ===
+              "https://admin.harinamjoli.in/wp-json/harinam/v1",
+            "production API URL",
+          );
+          [
+            "harinam-joli-users",
+            "harinam-joli-session",
+            "harinam-joli-password-reset",
+            "harinam-joli-orders",
+          ].forEach((key) =>
+            assert(localStorage.getItem(key) === null, `${key} not stored`),
+          );
+          await Promise.all([HarinamShop.sessionReady, HarinamShop.catalogReady]);
+          assert(Array.isArray(HarinamShop.catalog), "catalog loaded");
+          assert(
+            HarinamShop.catalog.every(
+              (product) => Number.isInteger(product.id) && product.id > 0,
+            ),
+            "real WooCommerce product IDs",
+          );
+          HarinamShop.clearCart();
+          let emptyCartRejected = false;
+          try {
+            await HarinamCheckout.validateCart();
+          } catch (error) {
+            emptyCartRejected = error.code === "harinam_empty_cart";
+          }
+          assert(emptyCartRejected, "server rejects empty cart");
+          output.textContent = `${passed.join("\n")}\n\nIntegration self-check passed.`;
+        } catch (error) {
+          output.textContent = `${passed.join("\n")}\nFAIL: ${error.message}`;
+        }
+      })();
+    </script>
+  </body>
+</html>

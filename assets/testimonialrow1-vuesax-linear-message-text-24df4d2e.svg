@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="message-text">
+<path id="Vector" d="M10 1.25H5C2.5 1.25 1.25 2.5 1.25 5V13.125C1.25 13.4687 1.53125 13.75 1.875 13.75H10C12.5 13.75 13.75 12.5 13.75 10V5C13.75 2.5 12.5 1.25 10 1.25Z" stroke="#292D32" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Group">
+<path id="Vector_2" d="M4.375 5.9375H10.625" stroke="#292D32" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M4.375 9.0625H8.75" stroke="#292D32" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Vector_4" opacity="0">
+</g>
+</g>
+</svg>

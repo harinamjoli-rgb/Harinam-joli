@@ -1,0 +1,43 @@
+# main branch pe push hote hi storefront ko harinamjoli.in (public_html) pe upload karta hai.
+# Sirf badli hui files upload hoti hain. WordPress (public_html/admin) ko ye kabhi touch nahi karta.
+name: Deploy storefront to harinamjoli.in
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-live
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload changed files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: ./
+          # Ye files live server pe nahi jaani chahiye (release zip me bhi nahi thi)
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            .vscode/**
+            tests/**
+            wordpress-plugin/**
+            harinam-store-api/**
+            dev-server.mjs
+            preview-server.mjs
+            *.txt
+            *.code-workspace
+            *.md

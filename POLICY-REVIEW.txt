@@ -1,0 +1,47 @@
+Harinam Joli policy pages — implementation review, 24 October 2026
+
+Completed locally
+- Four static, responsive pages sharing the store fonts, brown/cream palette, navigation and footer.
+- Footer policy labels are real links on all 15 storefront pages using the shared footer.
+- Policy links are available during registration, in the cart, before the payment action, on product detail and on Contact Us.
+- Clean policy URLs are supported by Apache and both local servers.
+- All storefront pages share the home header dimensions, centered automatic announcements and selected-category styling.
+- Search expands beneath the header with a dimmed backdrop; locally hosted Lenis supplies the reference-style scrolling, with reduced-motion support.
+- Contact Us uses the shared typography and spacing, with email/WhatsApp contact options and links to order, delivery and returns help.
+
+Flow verified from the frontend, the store API source and read-only WooCommerce settings
+- Account required for checkout and order tracking; orders are restricted to their owner.
+- Shipping and order totals are validated after the delivery address; payment takes place on a provider page.
+- The India payment route is Paytm with INR; cash on delivery is disabled.
+- India has an enabled free-shipping method with “No requirement” selected and minimum amount 0.
+- Rest of the world has no shipping method. International checkout is also subject to the API's supported-currency checks.
+- Returns, cancellations, privacy requests and refunds are support-led; there is no storefront self-service return/refund endpoint.
+- Newsletter and contact forms open an email application rather than submit to an automatic mailing/support service.
+- Cart/wishlist browser storage, the checkout-attempt session storage (including delivery details), authentication cookies, Google Fonts and Instagram requests are reflected in the privacy text.
+
+Business details still needed for final owner/legal sign-off
+- Registered legal entity, the public business address and named grievance officer/designation/contact.
+  The configured WooCommerce store-origin address was not assumed to be an approved public registered address.
+- The return request window and any approved change-of-mind or product-specific conditions.
+- Dispatch and delivery estimates, working days and any destination-specific exclusions.
+- Confirm the shipping offer: the banner says ₹599+, while the current WooCommerce India method has no minimum.
+  No prices or WooCommerce settings were changed. The policy describes the current free India method without inventing a minimum.
+- Refund processing service levels and agreed return-postage arrangements.
+
+Content approach
+- No invented delivery/return deadlines, automatic refunds, worldwide delivery promise or 24/7 support promise.
+- Statutory consumer remedies are preserved. A successful redirect is not described as proof of payment.
+- DPDP implementation is phased; these pages do not assert that every provision is already in force or certify compliance.
+- These are drafts based on the observed store flow, for the business owner and qualified legal professional to review before live publication.
+
+Primary references checked
+Consumer Protection (E-Commerce) Rules, 2020:
+https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(E-Commerce)%20Rules,%202020.pdf
+DPDP commencement notification, 13 November 2025:
+https://www.meity.gov.in/static/uploads/2025/11/c56ceae6c383460ca69577428d36828b.pdf
+DPDP Rules, 2025:
+https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+
+Verification limits
+- No live order, payment, refund, support message or mailing-list subscription was submitted.
+- No WordPress settings, policies or orders were modified or published remotely.

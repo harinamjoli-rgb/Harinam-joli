@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Complete your Harinam Joli order" />
+    <title>Checkout | Harinam Joli</title>
+    <script src="js/launch-guard.js?v=2"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Jacques+Francois&family=Sarala&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/products.css?v=27" />
+    <link rel="stylesheet" href="css/shop.css?v=27" />
+    <link rel="stylesheet" href="css/flows.css?v=11" />
+    <link rel="stylesheet" href="css/footer.css?v=13" />
+    <link rel="stylesheet" href="css/vendor/lenis-1.3.27.css" />
+    <link rel="stylesheet" href="css/storefront.css?v=5" />
+    <link rel="stylesheet" href="css/auth.css?v=4" />
+  </head>
+  <body class="storefront-page">
+    <header class="site-header">
+      <div class="announcement"><div class="announcement-content">
+        <button class="plain-button shipping-arrow" type="button" aria-label="Previous announcement"><img src="assets/header-vuesax-outline-arrow-left-5a09dae7.svg?v=2" alt="" /></button>
+        <p>Enjoy Free Shipping 599+ in India</p>
+        <button class="plain-button shipping-arrow" type="button" aria-label="Next announcement"><img src="assets/header-vuesax-outline-arrow-right-ef41ad17.svg?v=2" alt="" /></button>
+      </div></div>
+    </header>
+    <nav class="navbar storefront-nav" aria-label="Main navigation">
+      <div class="page-shell nav-inner">
+        <a class="brand-logo" href="/" aria-label="Harinam Joli home"><img src="assets/header-logo-horizontal.png?v=1" alt="Harinam Joli" /></a>
+        <button class="plain-button mobile-menu-button" id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><img src="assets/header-vuesax-outline-menu-fd340f04.svg?v=2" alt="" /></button>
+        <div class="nav-menu" id="nav-menu"><a href="/">HOME</a><i aria-hidden="true"></i><div class="nav-links"><a class="nav-products" href="products.html"><img src="assets/nav-menu.svg?v=2" alt="" />All PRODUCTS</a><div class="nav-category"><a class="nav-category-link" href="products.html?category=Japa%20Bag">JAPA BAGS</a><details class="nav-dropdown">
+                  <summary aria-label="Open Japa Bags submenu"><img src="assets/nav-arrow-down.svg?v=2" width="14" height="14" alt="" /></summary>
+                  <div class="nav-dropdown-menu">
+                    <a href="products.html?category=Japa%20Bag">All Japa Bags</a>
+                    <a href="products.html?category=Digital%20Print">Digital Print</a>
+                  </div>
+                </details></div><a href="products.html?category=Vastra">VASTRA</a><a href="products.html?category=Brooches">BROOCHES</a><a href="products.html?category=Books">BOOKS</a><a href="about.html">ABOUT US</a><a href="contact.html">CONTACT</a></div></div>
+        <div class="nav-actions">
+          <button class="plain-button" data-search-trigger type="button" aria-label="Search products"><img src="assets/header-vuesax-outline-search-normal-9f2ae478.svg?v=2" alt="" /></button>
+          <a class="plain-button nav-action-link" href="cart.html?v=2" aria-label="Shopping cart"><span class="visually-hidden">Shopping cart</span><img src="assets/header-vuesax-outline-bag2-a3f158fd.svg?v=2" alt="" /><span class="cart-count" data-cart-count aria-label="0 cart items">0</span></a>
+          <a class="plain-button nav-action-link" href="wishlist.html" aria-label="View wishlist"><span class="visually-hidden">Wishlist</span><img src="assets/header-vuesax-outline-heart-9c1e2a6c.svg?v=2" alt="" /><span class="count-badge" data-wishlist-count aria-label="0 wishlist items">0</span></a>
+          <a class="plain-button nav-action-link" href="account.html" data-account-link aria-label="My account"><img src="assets/header-vuesax-outline-profile-circle-45761b3b.svg?v=2" alt="" /></a>
+        </div>
+      </div>
+    </nav>
+    <main class="flow-main">
+      <section class="page-title"><h1>Checkout</h1></section>
+      <section class="flow-shell checkout-shell">
+        <ol class="checkout-progress" id="checkout-progress" aria-label="Checkout progress">
+          <li class="active" data-progress-step="shipping"><span>1</span>Shipping Address</li>
+          <li data-progress-step="payment"><span>2</span>Payment Method</li>
+          <li data-progress-step="review"><span>3</span>Order Confirmation</li>
+        </ol>
+
+        <div class="checkout-layout" id="checkout-layout">
+          <div class="checkout-panel">
+            <section class="checkout-step" data-checkout-step="shipping">
+              <p class="flow-eyebrow">Step 1 of 3</p>
+              <h2>Delivery address</h2>
+              <p class="checkout-lead">Enter the address where you would like to receive your order.</p>
+              <form id="shipping-form">
+                <div class="checkout-field-grid">
+                  <label class="auth-field full">Full name<input name="fullName" type="text" autocomplete="name" minlength="2" required /></label>
+                  <label class="auth-field">Country<select name="country" autocomplete="country" required><option value="IN">India</option></select></label>
+                  <label class="auth-field">Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile number" required /></label>
+                  <label class="auth-field">Postal code<input name="postalCode" type="text" autocomplete="postal-code" required /></label>
+                  <label class="auth-field full">House number and street address<textarea name="address" autocomplete="street-address" minlength="8" required></textarea></label>
+                  <label class="auth-field full">Landmark <span>(optional)</span><input name="landmark" type="text" autocomplete="off" /></label>
+                  <label class="auth-field">City<input name="city" type="text" autocomplete="address-level2" minlength="2" required /></label>
+                  <label class="auth-field">State<input name="state" type="text" autocomplete="address-level1" minlength="2" required /></label>
+                </div>
+                <output class="form-message" id="shipping-message" aria-live="polite"></output>
+                <div class="checkout-actions"><a class="flow-secondary checkout-link" href="cart.html?v=2">Back to cart</a><button class="flow-primary" type="submit">Continue to payment</button></div>
+              </form>
+            </section>
+
+            <section class="checkout-step" data-checkout-step="payment" hidden>
+              <p class="flow-eyebrow">Step 2 of 3</p>
+              <h2>Payment method</h2>
+              <p class="checkout-lead">Your secure payment provider is selected from the validated delivery country.</p>
+              <form id="payment-form">
+                <div class="payment-option"><span><b id="payment-name"></b><small id="payment-description"></small></span><strong>↗</strong></div>
+                <div id="shipping-methods"></div>
+                <output class="form-message" id="payment-message" aria-live="polite"></output>
+                <div class="checkout-actions"><button class="flow-secondary" id="payment-back" type="button">Back</button><button class="flow-primary" type="submit">Review order</button></div>
+              </form>
+            </section>
+
+            <section class="checkout-step" data-checkout-step="review" hidden>
+              <p class="flow-eyebrow">Step 3 of 3</p>
+              <h2>Review your order</h2>
+              <p class="checkout-lead">Please confirm the delivery and payment details before placing your order.</p>
+              <div class="review-card"><div><small>Deliver to</small><strong id="review-name"></strong><p id="review-address"></p><p id="review-phone"></p></div><button id="edit-shipping" type="button">Edit</button></div>
+              <div class="review-card"><div><small>Payment</small><strong id="review-payment"></strong><p id="review-payment-note"></p></div><button id="edit-payment" type="button">Edit</button></div>
+              <p class="flow-policy-notice">Before continuing, review our <a href="shipping-delivery-policy.html">Shipping &amp; Delivery Policy</a> and <a href="return-refund-policy.html">Return, Refund &amp; Cancellation Policy</a>. By placing your order, you agree to the <a href="terms-and-conditions.html">Terms and Conditions</a>. Read how we use your information in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+              <output class="form-message" id="order-message" aria-live="polite"></output>
+              <div class="checkout-actions"><button class="flow-secondary" id="review-back" type="button">Back</button><button class="flow-primary" id="place-order" type="button">Proceed to Secure Payment</button></div>
+            </section>
+
+            <section class="checkout-confirmation" id="checkout-confirmation" hidden tabindex="-1">
+              <div class="confirmation-mark" aria-hidden="true">✓</div>
+              <p class="flow-eyebrow">Order confirmed</p>
+              <h2>Thank you for your order</h2>
+              <p><span id="confirmation-message"></span><strong id="confirmation-number" hidden></strong></p>
+              <div class="confirmation-details"><div><small>Delivery address</small><p id="confirmation-address"></p></div><div><small>Payment</small><p id="confirmation-payment"></p></div><div><small>Order total</small><p id="confirmation-total"></p></div></div>
+              <div class="checkout-actions confirmation-actions"><a class="flow-secondary checkout-link" href="products.html">Continue shopping</a><a class="flow-primary checkout-link" id="confirmation-tracking-link" href="tracking.html">Track order</a></div>
+            </section>
+          </div>
+
+          <aside class="cart-summary checkout-summary" id="checkout-summary">
+            <p class="flow-eyebrow">Your order</p>
+            <h2>Order summary</h2>
+            <div class="checkout-summary-items" id="checkout-summary-items"></div>
+            <div class="summary-row"><span>Subtotal</span><strong id="checkout-subtotal"></strong></div>
+            <div class="summary-row"><span>Shipping</span><strong id="checkout-shipping"></strong></div>
+            <div class="summary-row"><span>Tax</span><strong id="checkout-tax"></strong></div>
+            <div class="summary-total"><span>Total</span><strong id="checkout-total"></strong></div>
+            <p class="shipping-note" id="checkout-shipping-note"></p>
+          </aside>
+        </div>
+
+        <div class="cart-empty checkout-empty" id="checkout-empty" hidden><h2>Your cart is empty</h2><p>Add a product before starting checkout.</p><a class="flow-primary checkout-link" href="products.html">Explore products</a></div>
+      </section>
+    </main>
+    <footer class="store-footer" id="footer">
+      <div class="store-footer__inner">
+        <div class="store-footer__brand">
+          <a class="store-footer__logo" href="/" aria-label="Harinam Joli home"><img loading="lazy" decoding="async" src="assets/footer-emblem.png" width="80" height="80" alt="" /><img loading="lazy" decoding="async" src="assets/footer-wordmark.png" width="140" height="48" alt="Harinam Joli" /></a>
+          <p><strong>Email:</strong> <a href="mailto:harinamjoli@gmail.com">harinamjoli@gmail.com</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919913032130" target="_blank" rel="noopener noreferrer">+91 99130 32130</a></p>
+        </div>
+        <div class="store-footer__navigation">
+          <nav class="store-footer__column" aria-label="Footer support">
+            <h2>SUPPORT</h2>
+            <div class="store-footer__links"><a href="products.html">All Products</a><a href="about.html">About Us</a><a href="tracking.html">Track Your Order</a><a href="contact.html">Contact Us</a></div>
+          </nav>
+          <div class="store-footer__column">
+            <h2>POLICIES</h2>
+            <div class="store-footer__links"><a href="privacy-policy.html">Privacy Policy</a><a href="return-refund-policy.html">Return, Refund &amp; Cancellation Policy</a><a href="shipping-delivery-policy.html">Shipping &amp; Delivery Policy</a><a href="terms-and-conditions.html">Terms and Conditions</a></div>
+          </div>
+          <div class="store-footer__column">
+            <h2>FOLLOW US</h2>
+            <p>Japa bags and devotional essentials, made with care.</p>
+            <a href="https://www.instagram.com/harinamjoli/" target="_blank" rel="noopener noreferrer">@harinamjoli</a>
+            <div class="store-footer__socials"><a href="https://www.instagram.com/harinamjoli/" target="_blank" rel="noopener noreferrer" aria-label="Harinam Joli on Instagram"><img loading="lazy" src="assets/tracking-instagram.svg?v=2" width="22" height="22" alt="" /></a><a href="https://wa.me/919913032130" target="_blank" rel="noopener noreferrer" aria-label="Chat with Harinam Joli on WhatsApp"><img loading="lazy" src="assets/whatsapp-logo.png" width="22" height="22" alt="" /></a></div>
+          </div>
+        </div>
+        <aside class="store-footer__newsletter" aria-label="Newsletter signup">
+          <h2>Let’s get in touch</h2>
+          <p>Sign up for our newsletter Now.</p>
+          <form action="mailto:harinamjoli@gmail.com?subject=Newsletter%20subscription" method="post" enctype="text/plain">
+            <label class="visually-hidden" for="footer-newsletter-email">Your email address</label>
+            <input id="footer-newsletter-email" name="Email" type="email" autocomplete="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe now</button>
+          </form>
+          <small>Opens your email app to request updates.</small>
+        </aside>
+      </div>
+      <p class="store-footer__copyright">2026 © Harinamjoli. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/catalog.js?v=3"></script>
+    <script src="js/shop.js?v=28"></script>
+    <script src="js/auth.js?v=5"></script>
+    <script src="js/checkout-process.js?v=3"></script>
+    <script src="js/checkout.js?v=4"></script>
+    <script src="js/vendor/lenis-1.3.27.min.js"></script>
+    <script src="js/storefront.js?v=3"></script>
+  </body>
+</html>

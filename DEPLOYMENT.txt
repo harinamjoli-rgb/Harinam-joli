@@ -1,0 +1,79 @@
+HARINAM JOLI — CUSTOMER / ADMIN SESSION SEPARATION 2 NOVEMBER 2026
+
+Deployed the customer session bootstrap to /home/l5janohwg08r/public_html/admin/wp-content/harinam-customer-sessions.php through cPanel File Manager. SHA256: 72ac89d4cf0c88ec8e599df91d51d25a06ef9309b3316052a5fa0e0f61b8cc23 (1,946 bytes). Added only require_once __DIR__ . '/wp-content/harinam-customer-sessions.php'; immediately before the existing wp-settings.php include in the backend wp-config.php. No user roles, passwords, salts, orders or gateway settings were changed. The existing Store API and active social-login snippet remain unchanged.
+
+The storefront REST namespace, social provider login and WooCommerce customer pages now use harinam_customer_auth, harinam_customer_sec and harinam_customer_logged_in. Admin login/wp-admin, admin AJAX, other REST namespaces and draft preview requests retain the original WordPress authentication cookies. Customer-generated login/logout/reset URLs preserve their namespace. WordPress still handles cookie signatures, tokens, expiry, nonces and capabilities. Existing customers need to sign in once again after the cookie-name change.
+
+Before editing, copied the original wp-config.php (3.64 KB, permissions 0600) to /home/l5janohwg08r/harinam-release-archives-2026-10-26/wp-config-before-session-separation-2026-11-01.php and verified its presence in File Manager. This backup is outside public_html. Roll back by removing the new require line or restoring this file, then remove the helper. Remove the require before removing the helper to avoid a startup error. No database rollback is needed.
+
+Verification: tests/customer-sessions-check.mjs passed against disposable real WordPress with PHP 8.3. It verifies simultaneous administrator/customer identities, distinct password and social-provider cookie issuance, customer admin denial, nonce isolation, admin REST and draft previews, payment-page customer identity, independent logout and token revocation. Existing auth-check.mjs, social-auth-check.mjs and storefront-check.mjs also passed. Test dependencies were installed only under /private/tmp/harinam-session-qa; no project dependency was added.
+
+Live admin login, customer login and customer session API returned HTTP 200. Separate anonymous reauth requests confirmed that admin responses expire only native wordpress authentication cookies and customer responses expire only harinam_customer authentication cookies. Guest /orders returned HTTP 401 harinam_auth_required. The live frontend displays its customer login popup after the namespace switch. Screenshot: /private/tmp/harinam-customer-login-separated-2026-11-02.jpg. Real admin/customer credentials and the full Google OAuth/payment flows were not submitted; sign-in pages were left open for the owner. No live test account or order was created.
+
+HARINAM JOLI — UPDATE 29 OCTOBER 2026
+
+Published the requested contact and About updates to https://harinamjoli.in through cPanel File Manager. The 16-file release includes 15 storefront HTML pages and css/about-1920.css: homepage customer reviews are hidden, the About values heading identifies GaurNitay Enterprise as owner/operator, the public support email and mailto/form recipients are harinamjoli@gmail.com, and the Contact page has an Address box directly below WhatsApp: 204, A8 Om Township V3, Pasodra, Kamrej, Surat 395006.
+
+Release archive: /private/tmp/harinam-deploy-2026-10-29/harinam-updates-2026-10-29.zip (66,224 bytes), SHA256 b4a86c1cd59392129eb704a47441abdb0abbd078058bfdb615144d58f8c9cb01. Uploaded to /home/l5janohwg08r/harinam-release-archives-2026-10-26 and extracted into /home/l5janohwg08r/public_html. cPanel confirmed all 16 files extracted. No WordPress, database, product, order or payment configuration changes were made.
+
+Rollback snapshot: harinam-frontend-snapshot-2026-10-29-before-update.zip (66,079 bytes), SHA256 c97736df0785a7f635655b90f51614c44f545f1077002d44fcdda48689778f66, stored beside the release outside public_html and locally in /private/tmp/harinam-deploy-2026-10-29. It contains the 16 pre-deployment public files, with GoDaddy's response-injected monitoring scripts removed from the HTML. The live/local comparison confirmed that only the requested changes were included. Extract this snapshot into public_html to restore the previous frontend content.
+
+Verification: both ZIP archives passed integrity checks; all 16 published HTTPS files match the release exactly after accounting for GoDaddy's injected monitoring scripts. Browser checks confirmed the Contact email/address boxes, the styled ownership statement on About, and hidden/display:none on the homepage testimonials. Relevant policy and review checks passed. The existing contract suite has an unrelated pre-existing stylesheet-version assertion mismatch (expects storefront.css?v=3 while pages already use v=5). No enquiry email, order or payment was submitted for verification. Live Contact screenshot: /private/tmp/harinam-deploy-2026-10-29/live-contact.jpg.
+
+HARINAM JOLI — UPDATE 28 OCTOBER 2026
+
+Published all current storefront changes to https://harinamjoli.in through cPanel File Manager. The 18-file update includes hidden Vastra/Brooches/Books category entry points, the supplied Return, Refund & Cancellation Policy, the three supplied Terms and Conditions clauses, the product-details quantity selector limit of 10, updated policy labels/cache versions, and the pending desktop product-grid stylesheet.
+
+Release archive: /private/tmp/harinam-updates-2026-10-28.zip. SHA256: 23bb36f00ae0c6921594ae20fcb6b71ffef002c150bd89f43c898b79c41bea9f. Uploaded to /home/l5janohwg08r/harinam-release-archives-2026-10-26 and extracted into /home/l5janohwg08r/public_html. The release contains 15 storefront HTML pages, css/storefront.css, css/products-figma.css and js/product-details.js. WordPress, payment settings, products, orders and the database were not modified.
+
+Before extraction, backed up the 15 affected HTML pages and existing css/js directories to /home/l5janohwg08r/harinam-release-archives-2026-10-26/harinam-frontend-backup-2026-10-28-before-update.zip (160,452 bytes). The downloaded copy in ~/Downloads was validated with no ZIP errors and contains all affected files. To roll back, extract that archive into public_html; it preserves the original relative paths. Both archives are stored outside the public document root.
+
+Post-deployment HTTPS checks confirmed all 18 files match the local release, accounting only for GoDaddy's appended hosting-monitor script on HTML responses. All 15 storefront pages, clean/HTML/trailing-slash routes, policy content links and shared assets passed. A browser check confirmed the hidden categories on the live homepage. Quantity handler checks confirmed repeated plus clicks stop at 10, decrement still works down to 1, and Add to Bag/Buy Now receive the capped selection. No live order or payment was submitted for verification.
+
+HARINAM JOLI — RELEASE 25 OCTOBER 2026
+
+Published on 26 October 2026 (Asia/Kolkata) at https://harinamjoli.in. cPanel Domains confirmed frontend root /home/l5janohwg08r/public_html and WordPress backend root /home/l5janohwg08r/public_html/admin. The storefront release was extracted successfully and Harinam Store API 1.0.2 is active.
+
+A rollback ZIP of the previous storefront was created and verified outside the public root: /home/l5janohwg08r/harinam-frontend-backup-2026-10-25-before-update.zip (34.92 MB). It includes assets, css, js, .htaccess, both index files and the existing storefront HTML pages. It excludes the WordPress admin directory, database and wp-config.php.
+
+The previous Store API plugin was also backed up outside the public root: /home/l5janohwg08r/harinam-store-api-backup-2026-10-25-before-update.zip (14.54 KB). A downloaded copy confirmed the previous installed version was 1.0.0. Comparison against the deployed update found only the version, separate short/full descriptions, totalSales and parent-category additions; authentication, checkout, payments and stock code are unchanged.
+
+The owner uploaded the frontend ZIP manually. The backend update ZIP was selected through the normal native file picker and installed through WordPress's supported plugin replacement flow; no extension permissions were changed. After extraction, the uploaded release ZIP and the accidentally uploaded backup copy were moved to /home/l5janohwg08r/harinam-release-archives-2026-10-26. Both former public ZIP URLs now return HTTP 404.
+
+FRONTEND
+
+Deployed /tmp/harinam-website-release-2026-10-25.zip (246 files, SHA256 db2cda264712b553e3cc32ba19e6fafa1663f6632f5781dd4274046511a3b082) directly into the frontend root. Backend WordPress directories, wp-config.php, uploads and databases were preserved. The archive contains only storefront pages, index.php, .htaccess and public assets; it excludes tests, development servers and WordPress plugins.
+
+BACKEND
+
+Updated the existing Harinam Store API through WordPress Plugins > Add Plugin > Upload Plugin with /tmp/harinam-store-api-1.0.2.zip (SHA256 1947a65fb2689e08b9ce3a5ee092eeccb1106b2d6a5066cf83164191038a6d99). WordPress confirmed replacement of 1.0.0 with 1.0.2 and the installed plugin remains active. Version 1.0.2 includes parent categories in product data; no products, orders, customers, prices or stock were changed by the update.
+
+The Google customer bridge is already active as the Code Snippets snippet "Harinam Customer Social Login 1.0.1". Do not also install the standalone social-login plugin. Google is enabled; Facebook is not configured. Customer Google sign-in reached an account-owner passkey prompt; completing sign-in and testing session persistence are still pending.
+
+PRODUCT MANAGEMENT
+
+Add or edit products in WordPress > Products. Set the real name, featured image, gallery, price and stock, select the appropriate product categories, then Publish. Draft products are excluded from the storefront. The site fetches the published catalog on page load; the API can cache product responses for up to 60 seconds.
+
+Backend category names matching the existing navigation and home tiles:
+- Japa Bag > Digital Print
+- Japa Bag > Hand Work Print
+- Japa Bag > Shilak
+- Japa Bag > Embroidery
+- Japa Bag > Premium Collection
+- Books
+- Vastra
+- Brooches
+
+Adding a matching published product activates its home category tile with the actual backend product photo/gallery. Empty home categories remain Coming soon. Product IDs, descriptions, prices, galleries and availability come from admin.harinamjoli.in, including in local development. Local browser data is used only for cart/wishlist preferences; it is not a separate product database.
+
+VERIFICATION AND ROLLBACK
+
+Before publishing, category assignment, empty categories, hover behavior, real home product links and the shared storefront contract passed local checks. Browser checks confirmed backend IDs 29, 35 and 39 in all four home product sections, exactly three Digital Print products and zero Books products. No production products or orders were created for testing. Missing empty categories were added in WordPress.
+
+Production verification passed for all 15 storefront pages, clean/HTML/trailing-slash routes and shared assets. Live home and Digital Print show the actual backend IDs 29, 35 and 39 with their backend photos and INR 499 prices. The real product-details link, add-to-cart, cart subtotal and remove action passed; the test cart was restored to empty. The account popup opens automatically and Google's provider endpoint remains enabled. The real auth-callback.html and all policy pages are deployed. Public product API responses include the updated descriptions, sales counts and deduplicated category membership. No orders or payments were created.
+
+Force HTTPS Redirect was enabled for harinamjoli.in through cPanel Domains. After the hosting configuration propagated, HTTP returned 301 to https://harinamjoli.in/. The HTTPS backend API remained HTTP 200. The configured login/CORS origin is https://harinamjoli.in. The www hostname currently has no DNS record; do not advertise that address without configuring it.
+
+Remaining acceptance work: customer Google login/session persistence still requires the account owner's identity verification; Facebook is not configured. No real payment transaction was tested. WordPress reports that the PayPal gateway ppcp-gateway is not configured/available, so international PayPal checkout must not be claimed ready.
+
+If the home/categories show incorrect products, any required page fails or API requests fail, restore the backed-up frontend files. If backend version 1.0.2 causes API errors, restore its previous plugin folder. Database rollback is not required for this release.

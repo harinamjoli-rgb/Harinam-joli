@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="54" height="10" viewBox="0 0 54 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 149885">
+<path id="Star 9" d="M5 0L6.12257 3.45492H9.75528L6.81636 5.59017L7.93893 9.04508L5 6.90983L2.06107 9.04508L3.18364 5.59017L0.244718 3.45492H3.87743L5 0Z" fill="#FBDD00"/>
+<path id="Star 10" d="M16 0L17.1226 3.45492H20.7553L17.8164 5.59017L18.9389 9.04508L16 6.90983L13.0611 9.04508L14.1836 5.59017L11.2447 3.45492H14.8774L16 0Z" fill="#FBDD00"/>
+<path id="Star 11" d="M27 0L28.1226 3.45492H31.7553L28.8164 5.59017L29.9389 9.04508L27 6.90983L24.0611 9.04508L25.1836 5.59017L22.2447 3.45492H25.8774L27 0Z" fill="#FBDD00"/>
+<path id="Star 12" d="M38 0L39.1226 3.45492H42.7553L39.8164 5.59017L40.9389 9.04508L38 6.90983L35.0611 9.04508L36.1836 5.59017L33.2447 3.45492H36.8774L38 0Z" fill="#FBDD00"/>
+<path id="Star 13" d="M49 0L50.1226 3.45492H53.7553L50.8164 5.59017L51.9389 9.04508L49 6.90983L46.0611 9.04508L47.1836 5.59017L44.2447 3.45492H47.8774L49 0Z" fill="url(#paint0_linear_0_644)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_644" x1="47" y1="5.5" x2="51" y2="5.5" gradientUnits="userSpaceOnUse">
+<stop offset="0.25" stop-color="#FBDD00"/>
+<stop offset="0.567308" stop-color="#E5E5E5"/>
+<stop offset="1" stop-color="#E5E5E5"/>
+</linearGradient>
+</defs>
+</svg>
