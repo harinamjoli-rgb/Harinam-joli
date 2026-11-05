@@ -3,7 +3,7 @@
 Setup ek baar karna hai. Uske baad `git push` karte hi website live pe update ho jaayegi.
 
 **Kya deploy hota hai:** storefront ki 246 files (HTML, `css/`, `js/`, `assets/`, `index.php`, `.htaccess`), `public_html` me.
-**Kya deploy NAHI hota:** `tests/`, `wordpress-plugin/`, `harinam-store-api/`, `dev-server.mjs`, `preview-server.mjs`, `.txt`/`.md` notes.
+**Kya deploy NAHI hota:** `backups/`, `admin/`, `tests/`, `wordpress-plugin/`, `harinam-store-api/`, `dev-server.mjs`, `preview-server.mjs`, `.txt`/`.md` notes.
 WordPress (`public_html/admin`), database aur uploads ko ye kabhi touch nahi karta.
 
 ---
@@ -30,7 +30,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 
 | Name | Value |
 |---|---|
-| `FTP_SERVER` | `ftp.harinamjoli.in` |
+| `FTP_SERVER` | `sg2plzcpnl507451.prod.sin2.secureserver.net` |
 | `FTP_USERNAME` | `deploy@harinamjoli.in` |
 | `FTP_PASSWORD` | Step 2 wala password |
 
@@ -50,7 +50,7 @@ git push -u origin main
 
 Repo → **Actions** tab kholo. Pehli baar saari 246 files (~18 MB) upload hongi, to 2-5 minute lag sakte hain. Green ✅ aaye to https://harinamjoli.in check karo.
 
-**Agar red ❌ aaye aur error me "TLS" ya "certificate" likha ho:** `.github/workflows/deploy.yml` me `protocol: ftps` ko `protocol: ftp` kar do, phir commit karke dobara push karo.
+**Agar red ❌ aaye aur error me "TLS" ya "certificate" likha ho:** cPanel ke Configure FTP Client me server hostname aur uska certificate verify karo. Workflow me `protocol: ftps` rakho.
 
 ---
 
